@@ -1,0 +1,129 @@
+/* Estilos generales */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4; /* Fondo claro para que se vea más limpio */
+  color: #333; /* Color de texto gris oscuro */
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Barra de navegación */
+.navbar {
+  background-color: #2c3e50; /* Un azul oscuro para la barra */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ecf0f1;
+}
+
+.nav-link {
+  color: #ecf0f1;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  color: #f39c12;
+}
+
+/* Sidebar */
+.card {
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #f39c12;
+  color: white;
+  border-radius: 8px 8px 0 0;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.list-group-item {
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+}
+
+.list-group-item:hover {
+  background-color: #f39c12;
+  color: white;
+  cursor: pointer;
+}
+
+/* Contenedor de productos */
+.container {
+  padding: 40px 0;
+}
+
+.row {
+  margin-top: 30px;
+}
+
+.col-md-4 {
+  margin-bottom: 30px;
+}
+
+/* Estilo de las tarjetas de productos */
+.card-img-top {
+  height: 250px; /* Mejor altura para las imágenes */
+  object-fit: cover; /* Mantener la proporción de la imagen */
+  border-radius: 8px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Botón de "Agregar al Carro" */
+.btn-warning {
+  background-color: #f39c12;
+  border-color: #f39c12;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-warning:hover {
+  background-color: #e67e22;
+  border-color: #e67e22;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .col-md-4 {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
