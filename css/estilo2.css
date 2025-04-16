@@ -51,7 +51,7 @@ body {
   .card-img-top {
     width: 100%; /* La imagen ocupa todo el ancho */
     height: 250px; /* Establece una altura fija para las imágenes */
-    object-fit: contain; /* Ajuste de imagen para que no se recorte, manteniendo la proporción */
+    object-fit: cover; /* Ajuste de imagen para que no se recorte, manteniendo la proporción */
     border-bottom: 1px solid #ddd; /* Línea debajo de la imagen */
   }
   

@@ -9,12 +9,68 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/estilos.css" />
+    <style>
+      /* Estilo de los botones de filtro (con color naranja) */
+      button.filter-btn {
+        background-color: #f39c12; /* Fondo naranja */
+        color: white; /* Color del texto blanco */
+        border: none;
+        padding: 8px 16px; /* Reducir padding */
+        font-size: 0.9rem; /* Reducir tamaño de fuente */
+        border-radius: 50px; /* Bordes redondeados */
+        margin-bottom: 8px; /* Reducir el margen inferior */
+        transition: all 0.3s ease; /* Transición suave */
+        cursor: pointer;
+      }
+
+      button.filter-btn:hover {
+        background-color: #e67e22; /* Naranja más oscuro al pasar el ratón */
+        transform: translateY(-2px); /* Efecto de movimiento */
+      }
+
+      /* Resaltar el filtro activo (con un borde más grueso y color) */
+      button.active {
+        font-weight: bold;
+        background-color: #e67e22; /* Naranja más oscuro */
+        color: white;
+        border-color: #d35400; /* Borde más oscuro */
+      }
+
+      /* Botón para quitar filtros */
+      button.clear-filters-btn {
+        background-color: #f39c12; /* Fondo naranja */
+        color: white; /* Color del texto blanco */
+        border: none;
+        padding: 8px 16px; /* Reducir padding */
+        font-size: 0.9rem; /* Reducir tamaño de fuente */
+        border-radius: 50px; /* Bordes redondeados */
+        margin-top: 10px; /* Ajustar margen superior */
+        transition: all 0.3s ease; /* Transición suave */
+        cursor: pointer;
+      }
+
+      button.clear-filters-btn:hover {
+        background-color: #e67e22; /* Naranja más oscuro */
+        transform: translateY(-2px); /* Efecto de movimiento */
+      }
+    </style>
   </head>
   <body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Rockin' Music</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -25,6 +81,11 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="artistas.html">Artistas</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="instrumentos.html"
+                >Instrumentos Musicales</a
+              >
             </li>
           </ul>
         </div>
@@ -41,13 +102,36 @@
               <h4>Filtrar por Categoría</h4>
             </div>
             <div class="card-body">
-              <ul class="list-group">
-                <li class="list-group-item"><a href="#">Guitarras</a></li>
-                <li class="list-group-item"><a href="#">Baterías</a></li>
-                <li class="list-group-item"><a href="#">Pianos</a></li>
-                <li class="list-group-item"><a href="#">Teclados</a></li>
-                <li class="list-group-item"><a href="#">Bajos</a></li>
-                <li class="list-group-item"><a href="#">Accesorios</a></li>
+              <ul class="list-group" id="categoryFilter">
+                <li class="list-group-item">
+                  <button
+                    class="filter-btn"
+                    onclick="filterCategory('Guitarras')"
+                  >
+                    Guitarras
+                  </button>
+                </li>
+                <li class="list-group-item">
+                  <button
+                    class="filter-btn"
+                    onclick="filterCategory('Baterías')"
+                  >
+                    Baterías
+                  </button>
+                </li>
+                <li class="list-group-item">
+                  <button
+                    class="filter-btn"
+                    onclick="filterCategory('Teclados')"
+                  >
+                    Teclados
+                  </button>
+                </li>
+                <li class="list-group-item">
+                  <button class="filter-btn" onclick="filterCategory('Bajos')">
+                    Bajos
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
@@ -56,67 +140,99 @@
               <h4>Filtrar por Precio</h4>
             </div>
             <div class="card-body">
-              <button class="btn btn-primary w-100">
+              <button
+                class="btn btn-primary w-100 filter-btn"
+                onclick="sortByPrice()"
+              >
                 Mayor a Menor Precio
               </button>
             </div>
           </div>
+          <!-- Botón para quitar filtros -->
+          <button class="clear-filters-btn w-100" onclick="clearFilters()">
+            Quitar Filtros
+          </button>
         </div>
 
         <!-- Productos -->
         <div class="col-md-9">
           <h2>Instrumentos Musicales</h2>
-          <div class="row">
+          <div class="row" id="productContainer">
             <!-- Producto 1 -->
-            <div class="col-md-4">
+            <div
+              class="col-md-4 product-item"
+              data-category="Guitarras"
+              data-price="1749000"
+            >
               <div class="card">
-                <img src="guitar.jpg" class="card-img-top" alt="Guitarra" />
+                <img
+                  src="img/guitarrafender.jpg"
+                  class="card-img-top"
+                  alt="Guitarra"
+                />
                 <div class="card-body">
                   <h5 class="card-title">
-                    VOX TG2 | Pedal Tone Garage Trike Fuzz
+                    Fender Stratocaster® HSS 50s JV Modified
                   </h5>
                   <p class="card-text">
-                    <span class="text-muted"><del>$254,719</del></span> $99,000
+                    <span class="text-muted"><del>$1.849.990</del></span>
+                    $1.749.000
                   </p>
                   <button class="btn btn-warning">Agregar al Carro</button>
                 </div>
               </div>
             </div>
             <!-- Producto 2 -->
-            <div class="col-md-4">
+            <div
+              class="col-md-4 product-item"
+              data-category="Baterías"
+              data-price="689990"
+            >
               <div class="card">
-                <img src="speaker.jpg" class="card-img-top" alt="Altavoz" />
+                <img
+                  src="img/bateria.webp"
+                  class="card-img-top"
+                  alt="Batería"
+                />
                 <div class="card-body">
                   <h5 class="card-title">
-                    Nexo P18 | Caja coaxial con subwoofer
+                    Batería Tama Stagestar ST52H5-Bns Black Night Sparkle 22
                   </h5>
-                  <p class="card-text">$3,990,000</p>
+                  <p class="card-text">$689.990</p>
                   <button class="btn btn-warning">Agregar al Carro</button>
                 </div>
               </div>
             </div>
             <!-- Producto 3 -->
-            <div class="col-md-4">
+            <div
+              class="col-md-4 product-item"
+              data-category="Teclados"
+              data-price="66990"
+            >
               <div class="card">
-                <img src="drum.jpg" class="card-img-top" alt="Batería" />
+                <img src="img/piano.webp" class="card-img-top" alt="Teclado" />
                 <div class="card-body">
                   <h5 class="card-title">
-                    EVANS T1T0C7 | Parche de 10” para Tom
+                    Teclado musical Ibrah Ib 2800 61 teclas negro 220V
                   </h5>
-                  <p class="card-text">$16,900</p>
+                  <p class="card-text">$66.990</p>
                   <button class="btn btn-warning">Agregar al Carro</button>
                 </div>
               </div>
             </div>
             <!-- Producto 4 -->
-            <div class="col-md-4">
+            <div
+              class="col-md-4 product-item"
+              data-category="Bajos"
+              data-price="780000"
+            >
               <div class="card">
-                <img src="cymbal.jpg" class="card-img-top" alt="Platillo" />
+                <img src="img/bajo.jpg" class="card-img-top" alt="Bajo" />
                 <div class="card-body">
                   <h5 class="card-title">
-                    TAYLOR 4501 | Pin dorado hardware exclusivo
+                    Warwick RockBass Corvette Basic 4 - Solid Black
                   </h5>
-                  <p class="card-text">$18,900</p>
+                  <p class="card-text">$780.000</p>
                   <button class="btn btn-warning">Agregar al Carro</button>
                 </div>
               </div>
@@ -127,5 +243,66 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Filtro por categoría
+      function filterCategory(category) {
+        const items = document.querySelectorAll(".product-item");
+        const buttons = document.querySelectorAll(".filter-btn");
+
+        // Desmarcar todos los botones
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        // Marcar el botón activo
+        const activeButton = Array.from(buttons).find(
+          (button) => button.innerText === category
+        );
+        if (activeButton) activeButton.classList.add("active");
+
+        // Filtrar los productos
+        items.forEach((item) => {
+          if (
+            item.getAttribute("data-category") !== category &&
+            category !== "Todos"
+          ) {
+            item.style.display = "none";
+          } else {
+            item.style.display = "block";
+          }
+        });
+      }
+
+      // Filtro por precio (Mayor a Menor)
+      function sortByPrice() {
+        const container = document.getElementById("productContainer");
+        const items = Array.from(container.querySelectorAll(".product-item"));
+        items.sort((a, b) => {
+          const priceA = parseFloat(a.getAttribute("data-price"));
+          const priceB = parseFloat(b.getAttribute("data-price"));
+          return priceB - priceA; // Ordenar de mayor a menor
+        });
+
+        // Reinsertar los productos ordenados en el contenedor
+        items.forEach((item) => container.appendChild(item));
+      }
+
+      // Quitar filtros y mostrar todos los productos
+      function clearFilters() {
+        const items = document.querySelectorAll(".product-item");
+        const buttons = document.querySelectorAll(".filter-btn");
+
+        // Mostrar todos los productos
+        items.forEach((item) => {
+          item.style.display = "block";
+        });
+
+        // Quitar la clase 'active' de los botones
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+      }
+    </script>
   </body>
 </html>

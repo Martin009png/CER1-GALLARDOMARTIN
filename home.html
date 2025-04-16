@@ -9,16 +9,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/estilos.css" />
-    <!-- Tu CSS -->
   </head>
   <body>
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Rockin' Music</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <!-- Cambié el enlace de "Marcas" para que apunte a la página marcas.html -->
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="marcas.html">Marcas</a>
             </li>
@@ -26,7 +38,7 @@
               <a class="nav-link" href="artistas.html">Artistas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Instrumentos Musicales</a>
+              <a class="nav-link" href="instrumentos.html">Instrumentos Musicales</a>
             </li>
           </ul>
         </div>
@@ -40,11 +52,11 @@
         <!-- Producto 1 -->
         <div class="col-md-3">
           <div class="card">
-            <img src="guitar.jpg" class="card-img-top" alt="Guitarra" />
+            <img src="img/guitar_fender_resized (1).jpg" class="card-img-top" alt="Guitarra" />
             <div class="card-body">
-              <h5 class="card-title">VOX TG2 | Pedal Tone Garage Trike Fuzz</h5>
+              <h5 class="card-title">Jackson King V™ KVXMG Serie X</h5>
               <p class="card-text">
-                <span class="text-muted"><del>$254,719</del></span> $99,000
+                <span class="text-muted"><del>$1.249.990</del></span> $1.149.990
               </p>
               <button class="btn btn-warning">Agregar al Carro</button>
             </div>
@@ -53,14 +65,17 @@
         <!-- Producto 2 -->
         <div class="col-md-3">
           <div class="card">
-            <img src="speaker.jpg" class="card-img-top" alt="Altavoz" />
+            <img src="img/retorno.jpg" class="card-img-top" alt="Altavoz" />
             <div class="card-body">
-              <h5 class="card-title">Nexo P18 | Caja coaxial con subwoofer</h5>
-              <p class="card-text">$3</p>
+              <h5 class="card-title">Electrovoice PXM-12MP Monitor piso 12 coaxial</h5>
+              <p class="card-text">$930.000</p>
+              <button class="btn btn-warning">Agregar al Carro</button>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
